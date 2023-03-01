@@ -11,8 +11,9 @@ def download_images(directory):
                 with open(entry.path, encoding="utf8") as f:
                     data = json.load(f)
 
-                small_folder = os.path.join(entry.name.strip(".json"), "small_images")
-                large_folder = os.path.join(entry.name.strip(".json"), "large_images")
+                name_without_ext = os.path.splitext(entry.name)[0]
+                small_folder = os.path.join(name_without_ext, "small_images")
+                large_folder = os.path.join(name_without_ext, "large_images")
                 os.makedirs(small_folder, exist_ok=True)
                 os.makedirs(large_folder, exist_ok=True)
 
